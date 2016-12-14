@@ -413,6 +413,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = try2.0/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "identifier.try2-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -425,6 +426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = try2.0/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "identifier.try2-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -505,6 +507,7 @@
 				A3798C531DFF033A00D3E9C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A3798C541DFF033A00D3E9C9 /* Build configuration list for PBXNativeTarget "try2.0Tests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +516,7 @@
 				A3798C561DFF033A00D3E9C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A3798C571DFF033A00D3E9C9 /* Build configuration list for PBXNativeTarget "try2.0UITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +525,7 @@
 				A3798C591DFF033A00D3E9C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
