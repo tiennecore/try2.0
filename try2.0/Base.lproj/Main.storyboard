@@ -93,13 +93,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Tul-Qk-KUV">
-                                        <rect key="frame" x="19" y="423" width="250" height="125"/>
+                                        <rect key="frame" x="19.5" y="423" width="249" height="125"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFt-4S-ZEX">
-                                                <rect key="frame" x="0.0" y="0.0" width="250" height="62.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="249" height="62.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gG-8h-3bn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="250" height="62.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="249" height="62.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="7gG-8h-3bn" secondAttribute="height" multiplier="40:10" constant="-1" id="TW8-qM-ru6"/>
                                                         </constraints>
@@ -110,7 +110,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Qq3-qA-TUC">
-                                                <rect key="frame" x="93" y="62.5" width="64" height="62.5"/>
+                                                <rect key="frame" x="92.5" y="62.5" width="64" height="62.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzN-Zf-n4z">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="62.5"/>
@@ -402,13 +402,13 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rdq-w0-7gG">
-                                                <rect key="frame" x="26" y="0.0" width="21" height="26"/>
+                                                <rect key="frame" x="26" y="0.0" width="20" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Rdq-w0-7gG" secondAttribute="height" multiplier="20:26" id="PWF-dA-pma"/>
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkO-Sc-CK9">
-                                                <rect key="frame" x="47" y="0.0" width="65" height="26"/>
+                                                <rect key="frame" x="46" y="0.0" width="65" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="KkO-Sc-CK9" secondAttribute="height" multiplier="50:20" id="WPc-35-7ec"/>
                                                 </constraints>
@@ -417,7 +417,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQ1-MI-vDu">
-                                                <rect key="frame" x="112" y="0.0" width="156" height="26"/>
+                                                <rect key="frame" x="111" y="0.0" width="157" height="26"/>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWg-HH-PYa">
                                                 <rect key="frame" x="268" y="0.0" width="20" height="26"/>
@@ -563,9 +563,6 @@
                                                     <constraint firstAttribute="height" constant="300" id="sQW-gu-828"/>
                                                 </constraints>
                                                 <state key="normal" image="pf1k2zuk"/>
-                                                <connections>
-                                                    <segue destination="Het-pU-r6S" kind="presentation" modalTransitionStyle="crossDissolve" id="Bi8-se-xQl"/>
-                                                </connections>
                                             </button>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="44" minValue="18" maxValue="70" translatesAutoresizingMaskIntoConstraints="NO" id="FXw-AR-Ng9">
                                                 <rect key="frame" x="23" y="307" width="242" height="41.5"/>
@@ -657,34 +654,6 @@
             </objects>
             <point key="canvasLocation" x="25" y="1802"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Ues-Lu-rkk">
-            <objects>
-                <viewController id="Het-pU-r6S" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="LVU-9F-Feu"/>
-                        <viewControllerLayoutGuide type="bottom" id="zfM-k0-a4o"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QDz-c1-O7K">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nA-OJ-RMC">
-                                <rect key="frame" x="76" y="47" width="45" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="forwardarrow_haciaadelante_4836"/>
-                                <connections>
-                                    <segue destination="9wt-DC-A6A" kind="presentation" id="LJf-iZ-Vbj"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ws0-uL-8MV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="967.5" y="1800"/>
-        </scene>
     </scenes>
     <resources>
         <image name="19721" width="512" height="512"/>
@@ -701,6 +670,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Gai-Kx-yNT"/>
-        <segue reference="frV-3G-usc"/>
     </inferredMetricsTieBreakers>
 </document>
