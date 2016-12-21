@@ -218,7 +218,7 @@
         <!--inscription-->
         <scene sceneID="k0d-XV-0lx">
             <objects>
-                <viewController id="Wxb-8d-fMl" userLabel="inscription" customClass="ViewController" customModule="try2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Wxb-8d-fMl" userLabel="inscription" customClass="SignUpController" customModule="try2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="chu-g5-8DK"/>
                         <viewControllerLayoutGuide type="bottom" id="pFd-cK-1pp"/>
@@ -1538,7 +1538,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yis-iJ-lFQ">
-                                                <rect key="frame" x="20" y="653" width="288" height="21"/>
+                                                <rect key="frame" x="20" y="653" width="288" height="20.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XeK-qj-u8b">
                                                         <rect key="frame" x="0.0" y="0.0" width="288" height="20.5"/>
@@ -2217,10 +2217,10 @@
         <image name="yesButton" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fui-e4-Fe3"/>
-        <segue reference="7B6-3d-TbE"/>
+        <segue reference="sBg-wC-W6C"/>
         <segue reference="5Ae-bF-qaf"/>
-        <segue reference="Zz8-qo-Kip"/>
-        <segue reference="8eZ-oj-2L3"/>
+        <segue reference="x5K-pO-AQy"/>
+        <segue reference="IfN-ko-vCc"/>
+        <segue reference="fui-e4-Fe3"/>
     </inferredMetricsTieBreakers>
 </document>
