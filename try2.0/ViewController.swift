@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
 
 	@IBOutlet weak var valeur: UILabel!
+    @IBOutlet weak var usernameSignUp: UITextField!
+    @IBOutlet weak var mailSignUp: UITextField!
+    @IBOutlet weak var passwordSignUp: UITextField!
 	
+    @IBAction func signUpButton(_ sender: UIButton) {
+    }
+    
+    
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
