@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -218,7 +218,7 @@
         <!--inscription-->
         <scene sceneID="k0d-XV-0lx">
             <objects>
-                <viewController id="Wxb-8d-fMl" userLabel="inscription" sceneMemberID="viewController">
+                <viewController id="Wxb-8d-fMl" userLabel="inscription" customClass="ViewController" customModule="try2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="chu-g5-8DK"/>
                         <viewControllerLayoutGuide type="bottom" id="pFd-cK-1pp"/>
@@ -350,6 +350,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDG-p5-u4d">
                                                         <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
                                                         <state key="normal" title="valider"/>
+                                                        <connections>
+                                                            <action selector="signUpButton:" destination="Wxb-8d-fMl" eventType="touchUpInside" id="DRS-6l-1mR"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -375,6 +378,11 @@
                             <constraint firstItem="3MO-Az-UEY" firstAttribute="trailing" secondItem="Xyg-xN-cyU" secondAttribute="trailingMargin" id="wRK-Ty-0bb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mailSignUp" destination="wDG-ko-U5b" id="5gH-J4-Kd8"/>
+                        <outlet property="passwordSignUp" destination="lht-DD-j5m" id="ccG-J7-IGQ"/>
+                        <outlet property="usernameSignUp" destination="40a-ka-3ue" id="NBu-EX-8ov"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ig-5d-E4R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -383,7 +391,7 @@
         <!--connexion-->
         <scene sceneID="Mls-kM-8Jr">
             <objects>
-                <viewController id="QPd-hr-igi" userLabel="connexion" sceneMemberID="viewController">
+                <viewController id="QPd-hr-igi" userLabel="connexion" customClass="ViewController" customModule="try2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pBU-bm-D4U"/>
                         <viewControllerLayoutGuide type="bottom" id="hDF-up-IAk"/>
@@ -1529,7 +1537,7 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleAspectFit" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yis-iJ-lFQ">
+                                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yis-iJ-lFQ">
                                                 <rect key="frame" x="20" y="653" width="288" height="21"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XeK-qj-u8b">
@@ -2209,10 +2217,10 @@
         <image name="yesButton" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sEM-NN-U2B"/>
-        <segue reference="8eZ-oj-2L3"/>
-        <segue reference="LV4-oF-VUJ"/>
+        <segue reference="fui-e4-Fe3"/>
+        <segue reference="7B6-3d-TbE"/>
+        <segue reference="5Ae-bF-qaf"/>
         <segue reference="Zz8-qo-Kip"/>
-        <segue reference="x5K-pO-AQy"/>
+        <segue reference="8eZ-oj-2L3"/>
     </inferredMetricsTieBreakers>
 </document>
