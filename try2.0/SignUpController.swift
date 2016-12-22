@@ -19,6 +19,8 @@ class SignUpController: UIViewController {
     var context:NSManagedObjectContext?
     
     @IBAction func signUpButton(_ sender: UIButton) {
+        
+        profilCreation(name: usernameSignUp!.text!, password: passwordSignUp!.text!, mail: mailSignUp!.text!)
     }
     
     func profilCreation(name:String, password:String, mail:String)
