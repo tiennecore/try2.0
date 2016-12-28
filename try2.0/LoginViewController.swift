@@ -14,20 +14,28 @@ import FBSDKLoginKit
 
 
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate {
+class LoginViewController: UIViewController, GIDSignInUIDelegate{
+    
+    
+    @IBOutlet weak var fbButton: UIButton!
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let loginButton = FBSDKLoginButton()
-        
-        view.addSubview(loginButton)
-        loginButton.frame = CGRect(x: 16, y: 50, width: view.frame.width  - 32 , height: 50)
-        
+        fbButton.addTarget(self, action: #selector(loginFacebook), for: .touchUpInside)
         GIDSignIn.sharedInstance().uiDelegate = self
     }
 
+    func loginFacebook(){
+        FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self) { (result, err) in
+            if err != nil{
+                print("FB login Fail")
+            }
+        }
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -72,7 +80,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             }
         }
     }
-    
+
 
 
  

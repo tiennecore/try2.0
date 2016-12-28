@@ -491,6 +491,9 @@
                                                             <constraint firstAttribute="width" secondItem="Dmh-sQ-rw1" secondAttribute="height" multiplier="35:35" id="mbu-nW-n8G"/>
                                                         </constraints>
                                                         <state key="normal" image="gmail"/>
+                                                        <connections>
+                                                            <action selector="googleLogin:" destination="QPd-hr-igi" eventType="touchUpInside" id="4E7-YT-yxN"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TYJ-26-uyc">
                                                         <rect key="frame" x="88" y="0.0" width="1" height="35"/>
@@ -555,6 +558,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="fbButton" destination="zsU-DK-6tq" id="y42-Sw-1nB"/>
                         <outlet property="passwordTextField" destination="TQA-zl-oOL" id="gsk-oE-xcW"/>
                         <outlet property="usernameTextField" destination="WQ6-8k-7Hz" id="VFv-UZ-AU8"/>
                     </connections>
