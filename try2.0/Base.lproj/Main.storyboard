@@ -298,7 +298,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lht-DD-j5m">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lht-DD-j5m">
                                                         <rect key="frame" x="0.0" y="155" width="288" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="zKK-T2-qXq"/>
@@ -391,7 +391,7 @@
         <!--connexion-->
         <scene sceneID="Mls-kM-8Jr">
             <objects>
-                <viewController id="QPd-hr-igi" userLabel="connexion" customClass="ViewController" customModule="try2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QPd-hr-igi" userLabel="connexion" customClass="LoginViewController" customModule="try2_0" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pBU-bm-D4U"/>
                         <viewControllerLayoutGuide type="bottom" id="hDF-up-IAk"/>
@@ -431,7 +431,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Qt5-y5-oWa">
                                         <rect key="frame" x="30" y="284" width="228" height="80"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WQ6-8k-7Hz" userLabel="ID">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="mail" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WQ6-8k-7Hz" userLabel="ID">
                                                 <rect key="frame" x="0.0" y="0.0" width="228" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="EkL-ws-ajy"/>
@@ -465,7 +465,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
                                                         <state key="normal" title="Connexion"/>
                                                         <connections>
-                                                            <segue destination="Y7f-fD-H0N" kind="presentation" id="7B6-3d-TbE"/>
+                                                            <action selector="Login:" destination="QPd-hr-igi" eventType="touchUpInside" id="RCv-Q3-ftn"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -474,35 +474,32 @@
                                                 <rect key="frame" x="0.0" y="30" width="288" height="35"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAQ-Zf-nOm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="76" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsU-DK-6tq">
+                                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="zsU-DK-6tq" secondAttribute="height" multiplier="35:35" id="OTd-lR-6oe"/>
+                                                                </constraints>
+                                                                <state key="normal" image="facebook-icon--basic-round-social-iconset--s-icons-7"/>
+                                                            </button>
+                                                        </subviews>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsU-DK-6tq">
-                                                        <rect key="frame" x="85" y="0.0" width="35.5" height="35"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="zsU-DK-6tq" secondAttribute="height" multiplier="35:35" id="OTd-lR-6oe"/>
-                                                        </constraints>
-                                                        <state key="normal" image="facebook-icon--basic-round-social-iconset--s-icons-7"/>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmh-sQ-rw1">
-                                                        <rect key="frame" x="129.5" y="0.0" width="35.5" height="35"/>
+                                                        <rect key="frame" x="44" y="0.0" width="35" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Dmh-sQ-rw1" secondAttribute="height" multiplier="35:35" id="mbu-nW-n8G"/>
                                                         </constraints>
                                                         <state key="normal" image="gmail"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zb-9p-Y4l">
-                                                        <rect key="frame" x="174" y="0.0" width="35" height="35"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="5zb-9p-Y4l" secondAttribute="height" multiplier="35:35" id="Wq8-90-r2T"/>
-                                                        </constraints>
-                                                        <state key="normal" image="twitter-icon--basic-round-social-iconset--s-icons-0"/>
-                                                    </button>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AE6-ee-eHA">
-                                                        <rect key="frame" x="218" y="0.0" width="70" height="35"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="AE6-ee-eHA" secondAttribute="height" multiplier="70:35" id="a6S-47-Rr7"/>
-                                                        </constraints>
-                                                    </stackView>
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TYJ-26-uyc">
+                                                        <rect key="frame" x="88" y="0.0" width="1" height="35"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fn1-zG-fdp" customClass="GIDSignInButton">
+                                                        <rect key="frame" x="98" y="0.0" width="190" height="35"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </view>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="mfd-rY-Dzj" secondAttribute="height" multiplier="288:35" id="tUr-4K-3SR"/>
@@ -557,10 +554,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="NHd-th-Uop" secondAttribute="trailing" id="vHa-HS-kgm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="TQA-zl-oOL" id="gsk-oE-xcW"/>
+                        <outlet property="usernameTextField" destination="WQ6-8k-7Hz" id="VFv-UZ-AU8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GCI-Nw-4K5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="26" y="966"/>
+            <point key="canvasLocation" x="24.375" y="965.49295774647885"/>
         </scene>
         <!--modification d'une photo-->
         <scene sceneID="vMZ-e9-cGG">
@@ -2779,16 +2780,14 @@
         <image name="fleche-precedente-symbole-ios-7-de-l-39-interface_318-38616" width="626" height="626"/>
         <image name="forwardarrow_haciaadelante_4836" width="512" height="512"/>
         <image name="gmail" width="360" height="360"/>
-        <image name="twitter-icon--basic-round-social-iconset--s-icons-0" width="512" height="512"/>
         <image name="ubuntu-logo32" width="200" height="200"/>
         <image name="yesButton" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7B6-3d-TbE"/>
-        <segue reference="Mel-F4-eWq"/>
         <segue reference="5Ae-bF-qaf"/>
         <segue reference="sBg-wC-W6C"/>
         <segue reference="qUt-br-kzb"/>
+        <segue reference="fui-e4-Fe3"/>
         <segue reference="pdB-iH-XHc"/>
     </inferredMetricsTieBreakers>
 </document>

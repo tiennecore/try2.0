@@ -6,8 +6,13 @@ target 'try2.0' do
   use_frameworks!
 
   # Pods for try2.0
- pod 'Firebase/Core'
+  pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
+  pod ‘FBSDKCoreKit’
+  pod ‘FBSDKShareKit’
+  pod ‘FBSDKLoginKit’
+
   target 'try2.0Tests' do
     inherit! :search_paths
     # Pods for testing

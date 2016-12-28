@@ -55,8 +55,6 @@ class SignUpController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
         // Do any additional setup after loading the view.
     }
 
