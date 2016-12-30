@@ -51,6 +51,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
                 print("success")
         }
         )
+        let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "Game") as UIViewController
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
+        appDelegate.window?.rootViewController = initialViewControlleripad
+        appDelegate.window?.makeKeyAndVisible()
 
         }
         
@@ -65,17 +71,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     
     
     @IBAction func Login(_ sender: Any) {
