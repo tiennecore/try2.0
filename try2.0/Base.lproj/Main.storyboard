@@ -473,34 +473,25 @@
                                             <stackView opaque="NO" contentMode="scaleAspectFit" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="mfd-rY-Dzj">
                                                 <rect key="frame" x="0.0" y="30" width="288" height="35"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAQ-Zf-nOm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsU-DK-6tq">
-                                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="zsU-DK-6tq" secondAttribute="height" multiplier="35:35" id="OTd-lR-6oe"/>
-                                                                </constraints>
-                                                                <state key="normal" image="facebook-icon--basic-round-social-iconset--s-icons-7"/>
-                                                            </button>
-                                                        </subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAQ-Zf-nOm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="35"/>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmh-sQ-rw1">
-                                                        <rect key="frame" x="44" y="0.0" width="35" height="35"/>
+                                                    <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="playback" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmh-sQ-rw1">
+                                                        <rect key="frame" x="9" y="0.0" width="35" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Dmh-sQ-rw1" secondAttribute="height" multiplier="35:35" id="mbu-nW-n8G"/>
                                                         </constraints>
                                                         <state key="normal" image="gmail"/>
-                                                        <connections>
-                                                            <action selector="googleLogin:" destination="QPd-hr-igi" eventType="touchUpInside" id="4E7-YT-yxN"/>
-                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="playback" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsU-DK-6tq">
+                                                        <rect key="frame" x="53" y="0.0" width="35" height="35"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="zsU-DK-6tq" secondAttribute="height" multiplier="35:35" id="OTd-lR-6oe"/>
+                                                        </constraints>
+                                                        <state key="normal" image="facebook-icon--basic-round-social-iconset--s-icons-7"/>
                                                     </button>
                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TYJ-26-uyc">
-                                                        <rect key="frame" x="88" y="0.0" width="1" height="35"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fn1-zG-fdp" customClass="GIDSignInButton">
-                                                        <rect key="frame" x="98" y="0.0" width="190" height="35"/>
+                                                        <rect key="frame" x="97" y="0.0" width="191" height="35"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                 </subviews>
@@ -559,6 +550,7 @@
                     </view>
                     <connections>
                         <outlet property="fbButton" destination="zsU-DK-6tq" id="y42-Sw-1nB"/>
+                        <outlet property="googleButton" destination="Dmh-sQ-rw1" id="NlY-Wm-co3"/>
                         <outlet property="passwordTextField" destination="TQA-zl-oOL" id="gsk-oE-xcW"/>
                         <outlet property="usernameTextField" destination="WQ6-8k-7Hz" id="VFv-UZ-AU8"/>
                     </connections>

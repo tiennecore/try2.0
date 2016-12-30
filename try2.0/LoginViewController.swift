@@ -17,29 +17,66 @@ import FBSDKLoginKit
 class LoginViewController: UIViewController, GIDSignInUIDelegate{
     
     
+    @IBOutlet weak var googleButton: UIButton!
     @IBOutlet weak var fbButton: UIButton!
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fbButton.addTarget(self, action: #selector(loginFacebook), for: .touchUpInside)
+        googleButton.addTarget(self, action: #selector(loginGoogle), for: .touchUpInside)
         GIDSignIn.sharedInstance().uiDelegate = self
     }
 
     func loginFacebook(){
+        
         FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self) { (result, err) in
             if err != nil{
                 print("FB login Fail")
             }
+        let accessToken = FBSDKAccessToken.current()
+        guard let accessTokenString = accessToken?.tokenString else
+        {return}
+        
+        let credentials = FIRFacebookAuthProvider.credential(withAccessToken: accessTokenString)
+        FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
+            if error != nil
+            {
+                print("something wrong", error!)
+                return
+            }
+                print("success")
+        }
+        )
+
         }
         
+    }
+    
+    func loginGoogle()
+    {
+        GIDSignIn.sharedInstance().signIn()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     @IBAction func Login(_ sender: Any) {
         
