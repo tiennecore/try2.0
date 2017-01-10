@@ -42,7 +42,7 @@ class SignUpController: UIViewController {
                         let userPassword = self.passwordSignUp.text
                         
                         
-                        _ = ref.child("users").child(userName!).setValue(["Email":userEmail, "Password" :userPassword, "From" : "Local"])
+                        _ = ref.child("users").child(userName!).setValue(["Email":userEmail, "Password" :userPassword, "Score" : 0, "From" : "Local"])
                         
 
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "Game")

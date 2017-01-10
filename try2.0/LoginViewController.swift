@@ -57,21 +57,41 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
             })
 
         
-            let parameter = ["fields": "id, name, email"]
-            
-            let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath:  "me", parameters: parameter)
-            graphRequest.start { (connection, result, error) in
-                if error != nil{
-                    print("failed to request graph", error!)
+                //check existence and creation
+            let user = FIRAuth.auth()?.currentUser
+            let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
+            let check = user?.displayName
+                
+            let checklist = ref.child("users")
+            checklist.observeSingleEvent(of: .value, with: { snapshot in
+                
+                if snapshot.hasChild(check!)
+                {
+                    print("success")
                     return
                 }
-            let user = result as? NSDictionary
-            let userName = user?.object(forKey: "name")
-            let userEmail = user?.object(forKey: "email")
-    
-            let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
-            _ = ref.child("users").child(userName as! String).setValue(["Email":userEmail,"From" : "Facebook"])
-    
+                else // create if didn't exist
+                {
+                    let parameter = ["fields": "id, name, email"]
+                    
+                    let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath:  "me", parameters: parameter)
+                    graphRequest.start { (connection, result, error) in
+                        if error != nil{
+                            print("failed to request graph", error!)
+                            return
+                        }
+                        let users = result as? NSDictionary
+                        let userName = users?.object(forKey: "name")
+                        let userEmail = users?.object(forKey: "email")
+                        _ = ref.child("users").child(userName as! String).setValue(["Email":userEmail,"Score" : 0, "From" : "Facebook"])
+                        print("OU pas")
+                    }
+                    
+                
+                }
+                
+            })
+            
             let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "Game") as UIViewController
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -82,9 +102,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
 
             }
         }
-    }
-    
-    
     
     func loginGoogle()
     {
