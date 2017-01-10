@@ -14,7 +14,7 @@
         <!--begin the game-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="begin the game" customClass="ViewController" customModule="try2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="begin the game" customClass="TutoViewController" customModule="try2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -114,7 +114,7 @@
                                                     <constraint firstAttribute="height" id="gGM-sw-1x0"/>
                                                 </constraints>
                                                 <connections>
-                                                    <action selector="slider:" destination="BYZ-38-t0r" eventType="valueChanged" id="f03-gP-taJ"/>
+                                                    <action selector="slider:" destination="BYZ-38-t0r" eventType="valueChanged" id="I7i-qS-gY8"/>
                                                 </connections>
                                             </slider>
                                         </subviews>
@@ -208,7 +208,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="valeur" destination="7gG-8h-3bn" id="rED-lM-Jdb"/>
+                        <outlet property="value" destination="7gG-8h-3bn" id="XRU-ui-n0t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -351,7 +351,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
                                                         <state key="normal" title="valider"/>
                                                         <connections>
-                                                            <action selector="signUpButton:" destination="Wxb-8d-fMl" eventType="touchUpInside" id="DRS-6l-1mR"/>
+                                                            <action selector="SignUp:" destination="Wxb-8d-fMl" eventType="touchUpInside" id="0Sd-9K-uvB"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -386,7 +386,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ig-5d-E4R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-768.11594202898561" y="965.21739130434787"/>
+            <point key="canvasLocation" x="-1140" y="965"/>
         </scene>
         <!--connexion-->
         <scene sceneID="Mls-kM-8Jr">
@@ -2185,7 +2185,7 @@
         <!--the game-->
         <scene sceneID="ipm-tD-zUU">
             <objects>
-                <viewController storyboardIdentifier="Game" id="Y7f-fD-H0N" userLabel="the game" customClass="ViewController" customModule="try2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Game" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y7f-fD-H0N" userLabel="the game" customClass="GameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eUq-h4-mif"/>
                         <viewControllerLayoutGuide type="bottom" id="rxJ-Ym-Dog"/>
@@ -2315,7 +2315,7 @@
                                                     <constraint firstAttribute="height" id="aYg-2e-HiZ"/>
                                                 </constraints>
                                                 <connections>
-                                                    <action selector="slider:" destination="Y7f-fD-H0N" eventType="valueChanged" id="gAF-b7-m3e"/>
+                                                    <action selector="slider:" destination="Y7f-fD-H0N" eventType="valueChanged" id="pvl-M9-oi3"/>
                                                 </connections>
                                             </slider>
                                         </subviews>
@@ -2425,7 +2425,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="valeur" destination="B23-G2-9Iz" id="0hX-a9-9rb"/>
+                        <outlet property="value" destination="B23-G2-9Iz" id="S1d-Se-Rnq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sq5-yG-GRg" sceneMemberID="firstResponder"/>

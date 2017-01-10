@@ -25,10 +25,9 @@ class SettingsViewController: UIViewController {
         test.observeSingleEvent(of: .value, with: { snapshot in
             
             let snap = snapshot.value as! NSDictionary
-            //problem NSCFnumber
-            let score = snap.value(forKey: "Score")! as! String //change From here to score when score is implemented
+            let score = snap.value(forKey: "Score")
             
-            self.scoreLabel.text = score
+          self.scoreLabel.text = "\(score!)"
             
         })
 

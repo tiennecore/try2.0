@@ -10,7 +10,7 @@
 		33AD00A6125228521A3D5CB0 /* Pods_try2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC706F4578E1529195E42C0B /* Pods_try2_0.framework */; };
 		58369495524E9CCB7C67E055 /* Pods_try2_0UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5104CE21475708D6114B0137 /* Pods_try2_0UITests.framework */; };
 		A3798C2D1DFF033A00D3E9C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3798C2C1DFF033A00D3E9C9 /* AppDelegate.swift */; };
-		A3798C2F1DFF033A00D3E9C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3798C2E1DFF033A00D3E9C9 /* ViewController.swift */; };
+		A3798C2F1DFF033A00D3E9C9 /* TutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3798C2E1DFF033A00D3E9C9 /* TutoViewController.swift */; };
 		A3798C321DFF033A00D3E9C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3798C301DFF033A00D3E9C9 /* Main.storyboard */; };
 		A3798C341DFF033A00D3E9C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3798C331DFF033A00D3E9C9 /* Assets.xcassets */; };
 		A3798C371DFF033A00D3E9C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3798C351DFF033A00D3E9C9 /* LaunchScreen.storyboard */; };
@@ -20,7 +20,7 @@
 		B61E76921E1273F200F3977F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E76911E1273F200F3977F /* LoginViewController.swift */; };
 		B62C62AF1E24EFEC0045BB3F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B62C62AE1E24EFEC0045BB3F /* GoogleService-Info.plist */; };
 		B62C62B11E25371B0045BB3F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62C62B01E25371B0045BB3F /* SettingsViewController.swift */; };
-		D3275E981E0AE0790039CF1D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3275E961E0AE0790039CF1D /* Model.xcdatamodeld */; };
+		B62C62B31E258A760045BB3F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62C62B21E258A760045BB3F /* GameViewController.swift */; };
 		D3275E9A1E0AF2490039CF1D /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3275E991E0AF2490039CF1D /* SignUpController.swift */; };
 		D3275E9C1E0AF56E0039CF1D /* ProfilController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3275E9B1E0AF56E0039CF1D /* ProfilController.swift */; };
 /* End PBXBuildFile section */
@@ -53,7 +53,7 @@
 		6A6261D8ACE7C62A744C5046 /* Pods-try2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-try2.0.debug.xcconfig"; path = "Pods/Target Support Files/Pods-try2.0/Pods-try2.0.debug.xcconfig"; sourceTree = "<group>"; };
 		A3798C291DFF033A00D3E9C9 /* try2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = try2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3798C2C1DFF033A00D3E9C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A3798C2E1DFF033A00D3E9C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A3798C2E1DFF033A00D3E9C9 /* TutoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutoViewController.swift; sourceTree = "<group>"; };
 		A3798C311DFF033A00D3E9C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A3798C331DFF033A00D3E9C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3798C361DFF033A00D3E9C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		B61E76961E13CD0200F3977F /* try2.0.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = try2.0.entitlements; sourceTree = "<group>"; };
 		B62C62AE1E24EFEC0045BB3F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B62C62B01E25371B0045BB3F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		D3275E971E0AE0790039CF1D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		B62C62B21E258A760045BB3F /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		D3275E991E0AF2490039CF1D /* SignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		D3275E9B1E0AF56E0039CF1D /* ProfilController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilController.swift; sourceTree = "<group>"; };
 		EC706F4578E1529195E42C0B /* Pods_try2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_try2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,14 +147,14 @@
 				B62C62B01E25371B0045BB3F /* SettingsViewController.swift */,
 				B61E76911E1273F200F3977F /* LoginViewController.swift */,
 				B61E76951E12921700F3977F /* Header.h */,
-				A3798C2E1DFF033A00D3E9C9 /* ViewController.swift */,
+				A3798C2E1DFF033A00D3E9C9 /* TutoViewController.swift */,
+				B62C62B21E258A760045BB3F /* GameViewController.swift */,
 				D3275E991E0AF2490039CF1D /* SignUpController.swift */,
 				A3798C301DFF033A00D3E9C9 /* Main.storyboard */,
 				D3275E9B1E0AF56E0039CF1D /* ProfilController.swift */,
 				A3798C331DFF033A00D3E9C9 /* Assets.xcassets */,
 				A3798C351DFF033A00D3E9C9 /* LaunchScreen.storyboard */,
 				A3798C381DFF033A00D3E9C9 /* Info.plist */,
-				D3275E961E0AE0790039CF1D /* Model.xcdatamodeld */,
 			);
 			path = try2.0;
 			sourceTree = "<group>";
@@ -478,9 +478,9 @@
 				B61E76921E1273F200F3977F /* LoginViewController.swift in Sources */,
 				D3275E9C1E0AF56E0039CF1D /* ProfilController.swift in Sources */,
 				B62C62B11E25371B0045BB3F /* SettingsViewController.swift in Sources */,
-				A3798C2F1DFF033A00D3E9C9 /* ViewController.swift in Sources */,
+				A3798C2F1DFF033A00D3E9C9 /* TutoViewController.swift in Sources */,
+				B62C62B31E258A760045BB3F /* GameViewController.swift in Sources */,
 				A3798C2D1DFF033A00D3E9C9 /* AppDelegate.swift in Sources */,
-				D3275E981E0AE0790039CF1D /* Model.xcdatamodeld in Sources */,
 				D3275E9A1E0AF2490039CF1D /* SignUpController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -761,19 +761,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		D3275E961E0AE0790039CF1D /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D3275E971E0AE0790039CF1D /* Model.xcdatamodel */,
-			);
-			currentVersion = D3275E971E0AE0790039CF1D /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = A3798C211DFF033A00D3E9C9 /* Project object */;
 }

@@ -9,9 +9,10 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class TutoViewController: UIViewController {
 
-	@IBOutlet weak var valeur: UILabel!
+	
+    @IBOutlet weak var value: UILabel!
         
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -24,10 +25,10 @@ class ViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	
-	
-	@IBAction func slider(_ sender: UISlider) {
-		valeur.text = String(Int(sender.value))
-	}
+    @IBAction func slider(_ sender: UISlider) {
+        value.text = String(Int(sender.value))
+   
+ }
 	
 
 
