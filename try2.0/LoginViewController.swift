@@ -9,8 +9,10 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 import GoogleSignIn
 import FBSDKLoginKit
+import FBSDKShareKit
 
 
 
@@ -37,30 +39,52 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
             if err != nil{
                 print("FB login Fail")
             }
-        let accessToken = FBSDKAccessToken.current()
-        guard let accessTokenString = accessToken?.tokenString else
-        {return}
-        
-        let credentials = FIRFacebookAuthProvider.credential(withAccessToken: accessTokenString)
-        FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
-            if error != nil
+            let accessToken = FBSDKAccessToken.current()
+            guard let accessTokenString = accessToken?.tokenString
+            else
             {
-                print("something wrong", error!)
                 return
             }
-                print("success")
-        }
-        )
-        let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "Game") as UIViewController
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
-        appDelegate.window?.rootViewController = initialViewControlleripad
-        appDelegate.window?.makeKeyAndVisible()
-
-        }
         
+            let credentials = FIRFacebookAuthProvider.credential(withAccessToken: accessTokenString)
+            FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
+                if error != nil
+                {
+                    print("something wrong", error!)
+                    return
+                }
+                print("success")
+            })
+
+        
+            let parameter = ["fields": "id, name, email"]
+            
+            let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath:  "me", parameters: parameter)
+            graphRequest.start { (connection, result, error) in
+                if error != nil{
+                    print("failed to request graph", error!)
+                    return
+                }
+            let user = result as? NSDictionary
+            let userName = user?.object(forKey: "name")
+            let userEmail = user?.object(forKey: "email")
+    
+            let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
+            _ = ref.child("users").child(userName as! String).setValue(["Email":userEmail,"From" : "Facebook"])
+    
+            let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "Game") as UIViewController
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
+            appDelegate.window?.rootViewController = initialViewControlleripad
+            appDelegate.window?.makeKeyAndVisible()
+            
+
+            }
+        }
     }
+    
+    
     
     func loginGoogle()
     {
@@ -104,7 +128,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
 
                     
                 }
-                let ref= FIRDatabase
                 //Print into the console if successfully logged in
                 print("You have successfully logged in")
                 //Go to the HomeViewController if the login is sucessful

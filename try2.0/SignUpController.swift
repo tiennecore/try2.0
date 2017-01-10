@@ -37,16 +37,12 @@ class SignUpController: UIViewController {
                         print("You have successfully signed up")
                         //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
                         let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
-                        let usersReference = ref.child("users")
+                        let userName = self.usernameSignUp.text
+                        let userEmail = self.mailSignUp.text
+                        let userPassword = self.passwordSignUp.text
                         
-                        let values = ["username": self.usernameSignUp.text, "email" : self.mailSignUp.text, "password" : self.passwordSignUp.text ]
-                        usersReference.updateChildValues(values, withCompletionBlock: { (err, ref ) in
-                            if err != nil{
-                                print(err!)
-                                return
-                            }
-                            print("Success Database Firebase")
-                        })
+                        
+                        _ = ref.child("users").child(userName!).setValue(["Email":userEmail, "Password" :userPassword, "From" : "Local"])
                         
 
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "Game")
