@@ -7,6 +7,8 @@ target 'try2.0' do
 
   # Pods for try2.0
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
   pod ‘FBSDKCoreKit’
