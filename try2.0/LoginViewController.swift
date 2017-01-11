@@ -47,59 +47,76 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
             }
             
             let credentials = FIRFacebookAuthProvider.credential(withAccessToken: accessTokenString)
+        
             FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
                 if error != nil
                 {
                     print("something wrongsss", error!)
-                    print("FLAG")
-                    return
+                    if let errCode = FIRAuthErrorCode(rawValue: (error?._code)!) {
+                        switch errCode {
+                        case .errorCodeEmailAlreadyInUse:
+                            let alertController = UIAlertController(title: "Error", message: "Email already used", preferredStyle: .alert)
+                            
+                            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                            alertController.addAction(defaultAction)
+                            
+                            self.present(alertController, animated: true, completion: nil)
+                            return
+                        default:
+
+                            return
+                        }
+                    }
+                    
                 } else
                 {
+                    //check existence and creation
+                    let user = FIRAuth.auth()?.currentUser
+                    let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
+                    let check = user?.displayName
+                    let check2 = user?.uid
+                    let checklist = ref.child("users")
+                    
+                    checklist.observeSingleEvent(of: .value, with: { snapshot in
+                        
+                        if snapshot.hasChild("f_\(check!)_\(check2!)")
+                        {
+                            return
+                        }
+                        else // create if didn't exist
+                        {
+                            let parameter = ["fields": "id, name, email"]
+                            
+                            let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath:  "me", parameters: parameter)
+                            graphRequest.start { (connection, result, error) in
+                                if error != nil{
+                                    print("failed to request graph", error!)
+                                    return
+                                }
+                                let users = result as? NSDictionary
+                                let optional = users?.object(forKey: "name")
+                                let userName = "f_\(optional!)_\(check2!)"
+                                let userEmail = users?.object(forKey: "email")
+                                _ = ref.child("users").child(userName ).setValue(["Email":userEmail,"Score" : 0, "From" : "Facebook"])
+                            }
+                            
+                        }
+                        
+                    })
                     print("SUCCESS ")
+                    let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "Game") as UIViewController
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
+                    appDelegate.window?.rootViewController = initialViewControlleripad
+                    appDelegate.window?.makeKeyAndVisible()
                 }
             })
 
         
-                //check existence and creation
-            let user = FIRAuth.auth()?.currentUser
-            let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
-            let check = user?.displayName
-            let check2 = user?.uid
-            let checklist = ref.child("users")
-
-            checklist.observeSingleEvent(of: .value, with: { snapshot in
-                
-                if snapshot.hasChild("f_\(check!)_\(check2!)")
-                {
-                    return
-                }
-                else // create if didn't exist
-                {
-                    let parameter = ["fields": "id, name, email"]
-                    
-                    let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath:  "me", parameters: parameter)
-                    graphRequest.start { (connection, result, error) in
-                        if error != nil{
-                            print("failed to request graph", error!)
-                            return
-                        }
-                        let users = result as? NSDictionary
-                        let optional = users?.object(forKey: "name")
-                        let userName = "f_\(optional!)_\(check2!)"
-                        let userEmail = users?.object(forKey: "email")
-                        _ = ref.child("users").child(userName ).setValue(["Email":userEmail,"Score" : 0, "From" : "Facebook"])
-                        }
-                
-                }
-                
-            })
             
-            let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "Game") as UIViewController
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
-            appDelegate.window?.rootViewController = initialViewControlleripad
-            appDelegate.window?.makeKeyAndVisible()
+            
+
             
 
             }
