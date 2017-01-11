@@ -103,7 +103,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
                         }
                         
                     })
-                    print("SUCCESS ")
                     let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "Game") as UIViewController
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
