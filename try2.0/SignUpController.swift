@@ -17,13 +17,17 @@ class SignUpController: UIViewController {
     @IBOutlet weak var usernameSignUp: UITextField!
     @IBOutlet weak var mailSignUp: UITextField!
     @IBOutlet weak var passwordSignUp: UITextField!
+
     
     var context:NSManagedObjectContext?
     
     @IBAction func SignUp(_ sender: Any) {
-        print("Flag")
-        if mailSignUp.text == "" {
-            let alertController = UIAlertController(title: "Error", message: "Please enter your email and password", preferredStyle: .alert)
+        let userName = usernameSignUp.text
+        let userEmail = mailSignUp.text
+        let userPassword = passwordSignUp.text
+        
+        if userEmail == "" {
+            let alertController = UIAlertController(title: "Error", message: "Please enter your email", preferredStyle: .alert)
             
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(defaultAction)
@@ -31,35 +35,46 @@ class SignUpController: UIViewController {
             present(alertController, animated: true, completion: nil)
             
         } else {
-            FIRAuth.auth()?.createUser(withEmail: mailSignUp.text!, password: passwordSignUp.text!) { (user, error) in
+            
+            let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
+            ref.child("users").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+            if snapshot.hasChild(userName!){
                 
+                let alertController = UIAlertController(title: "Error", message: "Username already used", preferredStyle: .alert)
                 
-                if error == nil {
-                    print("You have successfully signed up")
-                    //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
-                    let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
-                    let userName = self.usernameSignUp.text
-                    let userEmail = self.mailSignUp.text
-                    let userPassword = self.passwordSignUp.text
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                self.present(alertController, animated: true, completion: nil)
                     
-                    print("Flag")
-                    _ = ref.child("users").child(userName!).setValue(["Email":userEmail!, "Password" :userPassword!, "Score" : 0, "From" : "Local"])
-                    print("Flag2")
-                    
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier:"Game")
-                    print("Flag3")
-                    self.present(vc!, animated: true, completion: nil)
-                    
-                } else {
-                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(defaultAction)
-                    
-                    self.present(alertController, animated: true, completion: nil)
                 }
-            }
+                else
+                {
+                    FIRAuth.auth()?.createUser(withEmail: self.mailSignUp.text!, password: self.passwordSignUp.text!) { (user, error) in
+                    
+                    
+                        if error == nil {
+                            print("You have successfully signed up")
+                            _ = ref.child("users").child(userName!).setValue(["Email":userEmail!, "Password" :userPassword!, "Score" : 0, "From" : "Local"])
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier:"Game")
+                            self.present(vc!, animated: true, completion: nil)
+                        
+                        } else {
+                            let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                            alertController.addAction(defaultAction)
+                            self.present(alertController, animated: true, completion: nil)
+                        }
+                    }
+                }
+            })
+            
+
+
+            
+            
         }
+        
 
     }
     

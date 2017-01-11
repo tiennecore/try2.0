@@ -65,14 +65,13 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
             let checklist = ref.child("users")
             checklist.observeSingleEvent(of: .value, with: { snapshot in
                 
-                if snapshot.hasChild(check!)
+                if snapshot.hasChild("f_\(check)")
                 {
-                    print("success")
                     return
                 }
                 else // create if didn't exist
                 {
-                    let parameter = ["fields": "id, name, email"]
+                    let parameter = ["fields": "name, email"]
                     
                     let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath:  "me", parameters: parameter)
                     graphRequest.start { (connection, result, error) in
@@ -81,11 +80,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
                             return
                         }
                         let users = result as? NSDictionary
-                        let userName = users?.object(forKey: "name")
+                        let optional = users?.object(forKey: "name")
+                        let userName = "f_\(optional!)"
                         let userEmail = users?.object(forKey: "email")
-                        _ = ref.child("users").child(userName as! String).setValue(["Email":userEmail,"Score" : 0, "From" : "Facebook"])
-                        print("OU pas")
-                    }
+                        _ = ref.child("users").child(userName ).setValue(["Email":userEmail,"Score" : 0, "From" : "Facebook"])                    }
                     
                 
                 }
@@ -106,6 +104,26 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
     func loginGoogle()
     {
         GIDSignIn.sharedInstance().signIn()
+        let user = FIRAuth.auth()?.currentUser
+        let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
+        let check = user?.displayName
+        
+        let checklist = ref.child("users")
+        checklist.observeSingleEvent(of: .value, with: { snapshot in
+            
+            if snapshot.hasChild("g_\(check)")
+            {
+                return
+            }
+            else // create if didn't exist
+            {
+                let optional = user?.displayName
+                let userName = "g_\(optional!)"
+                let userEmail = user?.email
+                _ = ref.child("users").child(userName).setValue(["Email":userEmail!,"Score" : 0, "From" : "Google"])
+            }
+            
+        })
     }
     
     override func didReceiveMemoryWarning() {
