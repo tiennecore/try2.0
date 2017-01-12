@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		33AD00A6125228521A3D5CB0 /* Pods_try2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC706F4578E1529195E42C0B /* Pods_try2_0.framework */; };
 		58369495524E9CCB7C67E055 /* Pods_try2_0UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5104CE21475708D6114B0137 /* Pods_try2_0UITests.framework */; };
+		A33E55631E28205C00ACA65F /* add_photo_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33E55621E28205C00ACA65F /* add_photo_ViewController.swift */; };
 		A3798C2D1DFF033A00D3E9C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3798C2C1DFF033A00D3E9C9 /* AppDelegate.swift */; };
 		A3798C2F1DFF033A00D3E9C9 /* TutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3798C2E1DFF033A00D3E9C9 /* TutoViewController.swift */; };
 		A3798C321DFF033A00D3E9C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3798C301DFF033A00D3E9C9 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		582D751BEBD6F8E9421D79B9 /* Pods-try2.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-try2.0Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-try2.0Tests/Pods-try2.0Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6877378CC4645CE275F0E448 /* Pods-try2.0Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-try2.0Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-try2.0Tests/Pods-try2.0Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6A6261D8ACE7C62A744C5046 /* Pods-try2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-try2.0.debug.xcconfig"; path = "Pods/Target Support Files/Pods-try2.0/Pods-try2.0.debug.xcconfig"; sourceTree = "<group>"; };
+		A33E55621E28205C00ACA65F /* add_photo_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = add_photo_ViewController.swift; sourceTree = "<group>"; };
 		A3798C291DFF033A00D3E9C9 /* try2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = try2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3798C2C1DFF033A00D3E9C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3798C2E1DFF033A00D3E9C9 /* TutoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutoViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				B61E76951E12921700F3977F /* Header.h */,
 				A3798C2E1DFF033A00D3E9C9 /* TutoViewController.swift */,
 				B62C62B21E258A760045BB3F /* GameViewController.swift */,
+				A33E55621E28205C00ACA65F /* add_photo_ViewController.swift */,
 				D3275E991E0AF2490039CF1D /* SignUpController.swift */,
 				A3798C301DFF033A00D3E9C9 /* Main.storyboard */,
 				D3275E9B1E0AF56E0039CF1D /* ProfilController.swift */,
@@ -476,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B61E76921E1273F200F3977F /* LoginViewController.swift in Sources */,
+				A33E55631E28205C00ACA65F /* add_photo_ViewController.swift in Sources */,
 				D3275E9C1E0AF56E0039CF1D /* ProfilController.swift in Sources */,
 				B62C62B11E25371B0045BB3F /* SettingsViewController.swift in Sources */,
 				A3798C2F1DFF033A00D3E9C9 /* TutoViewController.swift in Sources */,
