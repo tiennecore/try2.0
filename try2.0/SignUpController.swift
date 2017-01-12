@@ -54,8 +54,10 @@ class SignUpController: UIViewController {
                     
                     
                         if error == nil {
+                            
                             print("You have successfully signed up")
-                            _ = ref.child("users").child(userName!).setValue(["Email":userEmail!, "Password" :userPassword!, "Score" : 0, "From" : "Local"])
+                            _ = ref.child("users").child(userName!).setValue(["Name" : userName!,  "Email":userEmail!, "Password" :userPassword!, "Score" : 0, "From" : "Local"])
+                            
                             let vc = self.storyboard?.instantiateViewController(withIdentifier:"Game")
                             self.present(vc!, animated: true, completion: nil)
                         

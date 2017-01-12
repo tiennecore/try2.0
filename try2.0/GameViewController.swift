@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CoreData
+import Firebase
 
 class GameViewController: UIViewController {
     
@@ -44,12 +44,12 @@ class GameViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     @IBAction func slider(_ sender: UISlider) {
         value.text = String(Int(sender.value))
     }
-    
 
-    
-    
+
+
+
 }

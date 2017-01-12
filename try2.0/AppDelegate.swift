@@ -48,11 +48,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                           accessToken: authentication.accessToken)
         FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+            
         
             if (error) != nil {
-            
-                return
+                
+                print(error!)
             }
+            else
+            {
+                
+                let name = user?.displayName
+                let user = FIRAuth.auth()?.currentUser
+                let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
+                let check = user?.uid
+                
+                let checklist = ref.child("users")
+                checklist.observeSingleEvent(of: .value, with: { snapshot in
+                    
+                    if snapshot.hasChild("g_\(name!)_\(check!)")
+                    {
+                        return
+                    }
+                    else // create if didn't exist
+                    {
+                        let userName = "g_\(name!)_\(check!)"
+                        let userEmail = user?.email
+                        _ = ref.child("users").child(userName).setValue(["Name" : name! ,"Email":userEmail!,"Score" : 0, "From" : "Google"])
+                    }
+                })
+
+            }
+        
         }
         let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "Game") as UIViewController
@@ -60,6 +86,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         self.window?.rootViewController = initialViewControlleripad
         self.window?.makeKeyAndVisible()
     }
+    
+    
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         
     }
