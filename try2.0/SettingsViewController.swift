@@ -16,23 +16,37 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let user = FIRAuth.auth()?.currentUser
+        
         let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
-        
-        let userName = user?.displayName
-        
-        let test = ref.child("users").child(userName!)
-        test.observeSingleEvent(of: .value, with: { snapshot in
+        let user = FIRAuth.auth()?.currentUser
+        let checklist = ref.child("users")
+        let usermail = user?.email
+        checklist.observeSingleEvent(of: .value, with: {(snap) in
             
-            let snap = snapshot.value as! NSDictionary
-            let score = snap.value(forKey: "Score")
-            
-          self.scoreLabel.text = "\(score!)"
-            
+        if let snapDict = snap.value as? [String:AnyObject]
+            {
+                    
+            for each in snapDict{
+                        
+                let childValue = each.value["Email"]!
+                let name  = each.value["Name"]!
+                let score = each.value["Score"]!
+                if childValue != nil
+                    {
+                    if (childValue as? String == usermail )
+                        {
+                            self.scoreLabel.text = "\(score!)"
+                            self.nameLabel.text = name as! String?
+                        }
+                            
+                    }
+                        
+                }
+                    
+                    
+            }
         })
 
-        
-        self.nameLabel.text = (user?.displayName)
         
     }
 
