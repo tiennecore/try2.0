@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import Firebase
 
 class add_photo_ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
+    
 	@IBOutlet weak var myImageView: UIImageView!
 	
+
 	@IBAction func import_image(_ sender: Any) {
-			let image = UIImagePickerController()
+            let image = UIImagePickerController()
 			image.delegate = self
 			
 			image.sourceType = UIImagePickerControllerSourceType.photoLibrary
@@ -22,22 +25,76 @@ class add_photo_ViewController: UIViewController, UINavigationControllerDelegate
 			
 			self.present(image, animated: true)
 			{
-				//After it is complete
+				
 			}
 		}
-		
+    @IBAction func Store(_ sender: Any) {
+        
+        let image = UIImagePickerController()
+        image.delegate = self
+        let user = FIRAuth.auth()?.currentUser
+        var number = 0
+        var from = ""
+        print("Flag1")
+        let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
+        let checklist = ref.child("users")
+        let usermail = user?.email
+        checklist.observeSingleEvent(of: .value, with: {(snap) in
+            
+            if let snapDict = snap.value as? [String:AnyObject]
+            {
+                
+                for each in snapDict{
+                    
+                    let childValue = each.value["Email"]!
+                    let nbPhotos = each.value["Photos"]!
+                    let userfrom = each.value["From"]
+
+                    if childValue != nil
+                    {
+                        if (childValue as? String == usermail )
+                        {
+                            number = nbPhotos as! Int
+                            from = userfrom as! String
+                        }
+                        
+                    }
+                    
+                }
+                
+                
+            }
+        })
+        let storageRef = FIRStorage.storage().reference().child("\(user!.uid)_\(number)")
+        let uploadData = UIImagePNGRepresentation(myImageView.image!)
+        
+        storageRef.put(uploadData!, metadata: nil, completion: { (metadata, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            print(metadata!)
+        })
+        
+        
+        
+        
+        
+        
+    }
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
 		{
-			if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+			if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage
 			{
-				myImageView.image = image
+				myImageView.image = originalImage
 			}
-			else
+            else if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage
 			{
-				//Error message
+				myImageView.image = editedImage
 			}
 			
 			self.dismiss(animated: true, completion: nil)
+            
 		}
 		
 		

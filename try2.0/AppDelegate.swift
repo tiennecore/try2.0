@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                     {
                         let userName = "g_\(name!)_\(check!)"
                         let userEmail = user?.email
-                        _ = ref.child("users").child(userName).setValue(["Name" : name! ,"Email":userEmail!,"Score" : 0, "From" : "Google"])
+                        _ = ref.child("users").child(userName).setValue(["Name" : name! ,"Email":userEmail!,"Score" : 0, "Photos" : 0 , "From" : "Google"])
                     }
                 })
 

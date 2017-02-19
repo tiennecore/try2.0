@@ -31,7 +31,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
         fbButton.addTarget(self, action: #selector(loginFacebook), for: .touchUpInside)
         googleButton.addTarget(self, action: #selector(loginGoogle), for: .touchUpInside)
         let user = FIRAuth.auth()?.currentUser
-        print(user!)
         
         GIDSignIn.sharedInstance().uiDelegate = self
     }
@@ -101,7 +100,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
                             }
                             else // create if didn't exist
                             {
-                                _ = ref.child("users").child(userName ).setValue(["Name": name, "Email":userEmail,"Score" : 0, "From" : "Facebook"])
+                                _ = ref.child("users").child(userName ).setValue(["Name": name, "Email":userEmail,"Score" : 0, "Photos" : 0,  "From" : "Facebook"])
                             }
                             
                         }
