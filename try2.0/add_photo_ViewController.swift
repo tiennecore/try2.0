@@ -11,7 +11,8 @@ import Firebase
 
 class add_photo_ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
-    
+    let user = FIRAuth.auth()?.currentUser
+    let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
 	@IBOutlet weak var myImageView: UIImageView!
 	
 
@@ -28,15 +29,11 @@ class add_photo_ViewController: UIViewController, UINavigationControllerDelegate
 				
 			}
 		}
+
+    
     @IBAction func Store(_ sender: Any) {
         
-        let image = UIImagePickerController()
-        image.delegate = self
-        let user = FIRAuth.auth()?.currentUser
-        var number = 0
-        var from = ""
-        print("Flag1")
-        let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
+        
         let checklist = ref.child("users")
         let usermail = user?.email
         checklist.observeSingleEvent(of: .value, with: {(snap) in
@@ -48,38 +45,59 @@ class add_photo_ViewController: UIViewController, UINavigationControllerDelegate
                     
                     let childValue = each.value["Email"]!
                     let nbPhotos = each.value["Photos"]!
-                    let userfrom = each.value["From"]
+                    let from = each.value["From"]! as! String
+                    let name = each.value["Name"]!
 
                     if childValue != nil
                     {
                         if (childValue as? String == usermail )
                         {
-                            number = nbPhotos as! Int
-                            from = userfrom as! String
+                            var num = nbPhotos as! Int
+                            
+                            
+                            let storageRef = FIRStorage.storage().reference().child("\(self.user!.uid)_\(num)")
+                            let uploadData = UIImagePNGRepresentation(self.myImageView.image!)
+                            
+                            storageRef.put(uploadData!, metadata: nil, completion: { (metadata, error) in
+                                if error != nil {
+                                    print(error!)
+                                    return
+                                }
+                                num = num + 1
+                                print(num)
+                                print(metadata!)
+                                
+                                if from == "Google"
+                                {
+                                    let check = self.user?.uid
+                                    let update = checklist.child("g_\(name!)_\(check!)")
+                                    update.updateChildValues(["Photos":num])
+                                }
+                                else if from == "Facebook"
+                                {
+                                    let check = self.user?.uid
+                                    let update = checklist.child("f_\(name!)_\(check!)")
+                                    update.updateChildValues(["Photos":num])
+                                }
+                                else if from == "Local"
+                                {
+                                    let check = self.user?.displayName
+                                    let update = checklist.child("\(check!)")
+                                    update.updateChildValues(["Photos":num])
+                                }
+                                
+                            })
+                            
                         }
                         
                     }
                     
                 }
                 
-                
             }
+            
         })
-        let storageRef = FIRStorage.storage().reference().child("\(user!.uid)_\(number)")
-        let uploadData = UIImagePNGRepresentation(myImageView.image!)
-        
-        storageRef.put(uploadData!, metadata: nil, completion: { (metadata, error) in
-            if error != nil {
-                print(error!)
-                return
-            }
-            print(metadata!)
-        })
-        
-        
-        
-        
-        
+
         
     }
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
