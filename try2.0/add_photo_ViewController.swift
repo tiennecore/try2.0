@@ -42,7 +42,7 @@ class add_photo_ViewController: UIViewController, UINavigationControllerDelegate
             {
                 
                 for each in snapDict{
-                    
+                    print("Hello")
                     let childValue = each.value["Email"]!
                     let nbPhotos = each.value["Photos"]!
                     let from = each.value["From"]! as! String
@@ -52,6 +52,7 @@ class add_photo_ViewController: UIViewController, UINavigationControllerDelegate
                     {
                         if (childValue as? String == usermail )
                         {
+                            print("FLag")
                             var num = nbPhotos as! Int
                             
                             
@@ -65,6 +66,7 @@ class add_photo_ViewController: UIViewController, UINavigationControllerDelegate
                                 }
                                 num = num + 1
                                 print(num)
+                                print("FLag")
                                 print(metadata!)
                                 
                                 if from == "Google"
@@ -85,9 +87,9 @@ class add_photo_ViewController: UIViewController, UINavigationControllerDelegate
                                     let update = checklist.child("\(check!)")
                                     update.updateChildValues(["Photos":num])
                                 }
-                                
+                                let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
+                                ref.child("images").child("\(self.user!.uid)_\(num)").setValue(["Age" : "0"])
                             })
-                            
                         }
                         
                     }

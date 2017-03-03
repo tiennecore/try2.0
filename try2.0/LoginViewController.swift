@@ -30,7 +30,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
         super.viewDidLoad()
         fbButton.addTarget(self, action: #selector(loginFacebook), for: .touchUpInside)
         googleButton.addTarget(self, action: #selector(loginGoogle), for: .touchUpInside)
-        let user = FIRAuth.auth()?.currentUser
         
         GIDSignIn.sharedInstance().uiDelegate = self
     }
