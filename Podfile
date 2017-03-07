@@ -15,6 +15,8 @@ target 'try2.0' do
   pod ‘FBSDKShareKit’
   pod ‘FBSDKLoginKit’
   pod 'Firebase/Storage'
+  pod 'SDWebImage' 
+  pod 'FirebaseUI'
 
   target 'try2.0Tests' do
     inherit! :search_paths

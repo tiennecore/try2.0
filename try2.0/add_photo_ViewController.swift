@@ -54,12 +54,13 @@ class add_photo_ViewController: UIViewController, UINavigationControllerDelegate
                         {
                             print("FLag")
                             var num = nbPhotos as! Int
-                            
-                            
+							let metaData = FIRStorageMetadata()
+							metaData.contentType = "image/jpg"
+							
                             let storageRef = FIRStorage.storage().reference().child("\(self.user!.uid)_\(num)")
                             let uploadData = UIImagePNGRepresentation(self.myImageView.image!)
                             
-                            storageRef.put(uploadData!, metadata: nil, completion: { (metadata, error) in
+                            storageRef.put(uploadData!, metadata: metaData, completion: { (metadata, error) in
                                 if error != nil {
                                     print(error!)
                                     return
