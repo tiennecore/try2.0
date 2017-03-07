@@ -8,10 +8,14 @@
 
 import UIKit
 import Firebase
+import FirebaseStorageUI
+import SDWebImage
 
 class GameViewController: UIViewController {
+	@IBOutlet weak var photo: UIImageView!
     
-
+	let reference: FIRStorageReference = FIRStorage.storage().reference(forURL: "gs://howold-b00bc.appspot.com/F8hPlGSIT5MZakJyCYuaXQjPZDr2_4")
+	let placeholderImage = UIImage(named: "placeholder.jpg")
     
 	@IBOutlet weak var value: UILabel!
   
@@ -21,7 +25,7 @@ class GameViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 	func setup() {
-		let redLayer = CALayer()
+		photo.sd_setImage(with: reference, placeholderImage: placeholderImage)
         
         let user = FIRAuth.auth()?.currentUser
         
@@ -52,20 +56,7 @@ class GameViewController: UIViewController {
                                 } else {
                                     // Data for "images/island.jpg" is returned
                                     print("test")
-                                    let image = UIImage(data: data!)
-                                    redLayer.frame = CGRect(x: 120, y: 180, width: 180, height: 210)
-                                    redLayer.backgroundColor = UIColor.white.cgColor
-                                    redLayer.contents = image?.cgImage
-                                    
-                                    redLayer.cornerRadius=20
-                                    redLayer.shadowOpacity = 0.7
-                                    redLayer.shadowRadius = 5
-                                    redLayer.borderColor = UIColor.gray.cgColor
-                                    redLayer.borderWidth = 2
-                                    
-                                    redLayer.contentsGravity = kCAGravityResizeAspect
-                                    redLayer.contentsScale = UIScreen.main.scale
-                                    self.view.layer.addSublayer(redLayer)
+									
                                 }
                             }
 

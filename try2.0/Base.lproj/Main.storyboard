@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -2297,6 +2297,11 @@
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nW2-5D-FSa">
                                                         <rect key="frame" x="15" y="0.0" width="185" height="199"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rGP-c6-bMR">
+                                                                <rect key="frame" x="0.0" y="0.0" width="185" height="199"/>
+                                                            </imageView>
+                                                        </subviews>
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.980921542758589" green="0.99263304860565904" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2417,6 +2422,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="photo" destination="rGP-c6-bMR" id="Kpj-1J-aZb"/>
                         <outlet property="value" destination="B23-G2-9Iz" id="ISI-w2-Iue"/>
                     </connections>
                 </viewController>
@@ -2777,7 +2783,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="aGX-Mh-USk"/>
         <segue reference="qUt-br-kzb"/>
-        <segue reference="ptp-3h-2yY"/>
+        <segue reference="5Ae-bF-qaf"/>
         <segue reference="sBg-wC-W6C"/>
         <segue reference="4SV-eF-lWH"/>
     </inferredMetricsTieBreakers>

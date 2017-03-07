@@ -1,3 +1,4 @@
+
 //
 //  try2_0Tests.swift
 //  try2.0Tests
@@ -7,7 +8,8 @@
 //
 
 import XCTest
-@testable import try2_0
+
+import SDWebImage
 
 class try2_0Tests: XCTestCase {
     
