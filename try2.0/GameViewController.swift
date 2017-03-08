@@ -16,6 +16,9 @@ class GameViewController: UIViewController {
 	@IBOutlet weak var photo2: UIStackView!
 	var fadeAnim:CABasicAnimation = CABasicAnimation(keyPath: "contents");
 	
+	@IBAction func gameslide(_ sender: UISlider) {
+		values.text = String(Int(sender.value))
+	}
 	
 	
     
@@ -23,8 +26,10 @@ class GameViewController: UIViewController {
 	let placeholderImage = UIImage(named: "placeholder.jpg")
 	let toImage = UIImage(named: "cha.jpg")!
 	
-    
-	@IBOutlet weak var value: UILabel!
+	@IBOutlet weak var values: UILabel!
+	@IBOutlet weak var negativevalue: UILabel!
+	@IBOutlet weak var positivevalue: UILabel!
+	
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,17 +51,15 @@ class GameViewController: UIViewController {
 		fadeAnim.toValue   = toImage
 		fadeAnim.duration  = 1.5         //smoothest value
 		
-		
-		
-
-		
         let user = FIRAuth.auth()?.currentUser
         
         let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
         let checklist = ref.child("users")
         let usermail = user?.email
+		
+
         checklist.observeSingleEvent(of: .value, with: {(snap) in
-            
+			
             if let snapDict = snap.value as? [String:AnyObject]
             {
                 
@@ -97,6 +100,12 @@ class GameViewController: UIViewController {
 	}
 	@IBAction func valider(_ sender: Any) {
 		
+		let realval = 0 as Int
+		
+		if( realval != Int(values.text!)){
+			
+		}
+		
 		photo.layer.add(fadeAnim, forKey: "contents")
 		
 		photo.image = toImage
@@ -108,9 +117,7 @@ class GameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func slider(_ sender: UISlider) {
-        value.text = String(Int(sender.value))
-    }
+
 
 
 

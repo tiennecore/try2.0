@@ -900,6 +900,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="age" destination="U5L-6k-hJI" id="ZyA-KZ-T83"/>
                         <outlet property="myImageView" destination="5Nw-Gf-z28" id="OZc-0A-zhX"/>
                     </connections>
                 </viewController>
@@ -2315,7 +2316,7 @@
                                                     <constraint firstAttribute="height" id="aYg-2e-HiZ"/>
                                                 </constraints>
                                                 <connections>
-                                                    <action selector="slider:" destination="Y7f-fD-H0N" eventType="valueChanged" id="pvl-M9-oi3"/>
+                                                    <action selector="gameslide:" destination="Y7f-fD-H0N" eventType="valueChanged" id="UrY-Dk-YQX"/>
                                                 </connections>
                                             </slider>
                                         </subviews>
@@ -2425,9 +2426,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="negativevalue" destination="VlH-LC-8Dm" id="3M4-Zb-fGq"/>
                         <outlet property="photo" destination="rGP-c6-bMR" id="Kpj-1J-aZb"/>
                         <outlet property="photo2" destination="nW2-5D-FSa" id="ixx-Tf-gxU"/>
-                        <outlet property="value" destination="B23-G2-9Iz" id="ISI-w2-Iue"/>
+                        <outlet property="positivevalue" destination="mdp-LF-cjh" id="F9g-yI-i9x"/>
+                        <outlet property="values" destination="B23-G2-9Iz" id="i0J-gC-6Yl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sq5-yG-GRg" sceneMemberID="firstResponder"/>
@@ -2785,10 +2788,10 @@
         <image name="yesButton" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aGX-Mh-USk"/>
         <segue reference="qUt-br-kzb"/>
-        <segue reference="5Ae-bF-qaf"/>
-        <segue reference="sBg-wC-W6C"/>
+        <segue reference="LV4-oF-VUJ"/>
         <segue reference="4SV-eF-lWH"/>
+        <segue reference="sBg-wC-W6C"/>
+        <segue reference="aGX-Mh-USk"/>
     </inferredMetricsTieBreakers>
 </document>

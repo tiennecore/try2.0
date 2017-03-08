@@ -14,6 +14,7 @@ class add_photo_ViewController: UIViewController, UINavigationControllerDelegate
     let user = FIRAuth.auth()?.currentUser
     let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
 	@IBOutlet weak var myImageView: UIImageView!
+	@IBOutlet weak var age: UITextField!
 	
 
 	@IBAction func import_image(_ sender: Any) {
@@ -35,6 +36,7 @@ class add_photo_ViewController: UIViewController, UINavigationControllerDelegate
         
         
         let checklist = ref.child("users")
+
         let usermail = user?.email
         checklist.observeSingleEvent(of: .value, with: {(snap) in
             
@@ -42,7 +44,7 @@ class add_photo_ViewController: UIViewController, UINavigationControllerDelegate
             {
                 
                 for each in snapDict{
-                    print("Hello")
+					
                     let childValue = each.value["Email"]!
                     let nbPhotos = each.value["Photos"]!
                     let from = each.value["From"]! as! String
@@ -52,7 +54,7 @@ class add_photo_ViewController: UIViewController, UINavigationControllerDelegate
                     {
                         if (childValue as? String == usermail )
                         {
-                            print("FLag")
+							
                             var num = nbPhotos as! Int
 							let metaData = FIRStorageMetadata()
 							metaData.contentType = "image/jpg"
@@ -66,8 +68,6 @@ class add_photo_ViewController: UIViewController, UINavigationControllerDelegate
                                     return
                                 }
                                 num = num + 1
-                                print(num)
-                                print("FLag")
                                 print(metadata!)
                                 
                                 if from == "Google"
@@ -89,10 +89,10 @@ class add_photo_ViewController: UIViewController, UINavigationControllerDelegate
                                     update.updateChildValues(["Photos":num])
                                 }
                                 let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
-                                ref.child("images").child("\(self.user!.uid)_\(num)").setValue(["Age" : "0"])
+                                ref.child("images").child("\(self.user!.uid)/\(self.user!.uid)_\(num)").setValue(["Age" : self.age])
                             })
                         }
-                        
+						
                     }
                     
                 }
