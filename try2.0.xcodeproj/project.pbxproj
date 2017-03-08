@@ -15,8 +15,6 @@
 		A3798C321DFF033A00D3E9C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3798C301DFF033A00D3E9C9 /* Main.storyboard */; };
 		A3798C341DFF033A00D3E9C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3798C331DFF033A00D3E9C9 /* Assets.xcassets */; };
 		A3798C371DFF033A00D3E9C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3798C351DFF033A00D3E9C9 /* LaunchScreen.storyboard */; };
-		A3798C421DFF033A00D3E9C9 /* try2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3798C411DFF033A00D3E9C9 /* try2_0Tests.swift */; };
-		A3798C4D1DFF033A00D3E9C9 /* try2_0UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3798C4C1DFF033A00D3E9C9 /* try2_0UITests.swift */; };
 		B2C4F2261613E6B5051FFB4B /* Pods_try2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E440B47FE65E6D3ACC04AF /* Pods_try2_0Tests.framework */; };
 		B61E76921E1273F200F3977F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E76911E1273F200F3977F /* LoginViewController.swift */; };
 		B62C62B11E25371B0045BB3F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62C62B01E25371B0045BB3F /* SettingsViewController.swift */; };
@@ -61,11 +59,7 @@
 		A3798C361DFF033A00D3E9C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3798C381DFF033A00D3E9C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3798C3D1DFF033A00D3E9C9 /* try2.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = try2.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3798C411DFF033A00D3E9C9 /* try2_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = try2_0Tests.swift; sourceTree = "<group>"; };
-		A3798C431DFF033A00D3E9C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3798C481DFF033A00D3E9C9 /* try2.0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = try2.0UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3798C4C1DFF033A00D3E9C9 /* try2_0UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = try2_0UITests.swift; sourceTree = "<group>"; };
-		A3798C4E1DFF033A00D3E9C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B61E76911E1273F200F3977F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B61E76951E12921700F3977F /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		B61E76961E13CD0200F3977F /* try2.0.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = try2.0.entitlements; sourceTree = "<group>"; };
@@ -122,8 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				A3798C2B1DFF033A00D3E9C9 /* try2.0 */,
-				A3798C401DFF033A00D3E9C9 /* try2.0Tests */,
-				A3798C4B1DFF033A00D3E9C9 /* try2.0UITests */,
 				A3798C2A1DFF033A00D3E9C9 /* Products */,
 				58A4411E811B258EE398C046 /* Pods */,
 				A6C8E0D8E8B9AD290402592C /* Frameworks */,
@@ -160,24 +152,6 @@
 				A3798C381DFF033A00D3E9C9 /* Info.plist */,
 			);
 			path = try2.0;
-			sourceTree = "<group>";
-		};
-		A3798C401DFF033A00D3E9C9 /* try2.0Tests */ = {
-			isa = PBXGroup;
-			children = (
-				A3798C411DFF033A00D3E9C9 /* try2_0Tests.swift */,
-				A3798C431DFF033A00D3E9C9 /* Info.plist */,
-			);
-			path = try2.0Tests;
-			sourceTree = "<group>";
-		};
-		A3798C4B1DFF033A00D3E9C9 /* try2.0UITests */ = {
-			isa = PBXGroup;
-			children = (
-				A3798C4C1DFF033A00D3E9C9 /* try2_0UITests.swift */,
-				A3798C4E1DFF033A00D3E9C9 /* Info.plist */,
-			);
-			path = try2.0UITests;
 			sourceTree = "<group>";
 		};
 		A6C8E0D8E8B9AD290402592C /* Frameworks */ = {
@@ -493,7 +467,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3798C421DFF033A00D3E9C9 /* try2_0Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,7 +474,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3798C4D1DFF033A00D3E9C9 /* try2_0UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

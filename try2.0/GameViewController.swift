@@ -13,9 +13,16 @@ import SDWebImage
 
 class GameViewController: UIViewController {
 	@IBOutlet weak var photo: UIImageView!
+	@IBOutlet weak var photo2: UIStackView!
+	var fadeAnim:CABasicAnimation = CABasicAnimation(keyPath: "contents");
+	
+	
+	
     
 	let reference: FIRStorageReference = FIRStorage.storage().reference(forURL: "gs://howold-b00bc.appspot.com/F8hPlGSIT5MZakJyCYuaXQjPZDr2_4")
 	let placeholderImage = UIImage(named: "placeholder.jpg")
+	let toImage = UIImage(named: "cha.jpg")!
+	
     
 	@IBOutlet weak var value: UILabel!
   
@@ -26,7 +33,23 @@ class GameViewController: UIViewController {
     }
 	func setup() {
 		photo.sd_setImage(with: reference, placeholderImage: placeholderImage)
-        
+		photo.layer.backgroundColor = UIColor.white.cgColor
+		photo.layer.cornerRadius=20
+		photo.layer.shadowOpacity = 0.7
+		photo.layer.shadowRadius = 5
+		photo.layer.borderColor = UIColor.black.cgColor
+		photo.layer.borderWidth = 1
+		photo.layer.contentsGravity = kCAGravityResizeAspect
+		photo.layer.contentsScale = UIScreen.main.scale
+		
+		fadeAnim.fromValue = placeholderImage
+		fadeAnim.toValue   = toImage
+		fadeAnim.duration  = 1.5         //smoothest value
+		
+		
+		
+
+		
         let user = FIRAuth.auth()?.currentUser
         
         let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
@@ -70,6 +93,13 @@ class GameViewController: UIViewController {
             }
         })
 
+		
+	}
+	@IBAction func valider(_ sender: Any) {
+		
+		photo.layer.add(fadeAnim, forKey: "contents")
+		
+		photo.image = toImage
 		
 	}
 	

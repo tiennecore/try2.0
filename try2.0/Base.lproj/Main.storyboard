@@ -2374,6 +2374,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poB-HF-cbN">
                                                                 <rect key="frame" x="0.0" y="0.0" width="66" height="35"/>
                                                                 <state key="normal" image="yesButton"/>
+                                                                <connections>
+                                                                    <action selector="valider:" destination="Y7f-fD-H0N" eventType="touchUpInside" id="QlC-vj-SOO"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -2423,6 +2426,7 @@
                     </view>
                     <connections>
                         <outlet property="photo" destination="rGP-c6-bMR" id="Kpj-1J-aZb"/>
+                        <outlet property="photo2" destination="nW2-5D-FSa" id="ixx-Tf-gxU"/>
                         <outlet property="value" destination="B23-G2-9Iz" id="ISI-w2-Iue"/>
                     </connections>
                 </viewController>
