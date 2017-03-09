@@ -7,15 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		33AD00A6125228521A3D5CB0 /* Pods_try2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC706F4578E1529195E42C0B /* Pods_try2_0.framework */; };
-		58369495524E9CCB7C67E055 /* Pods_try2_0UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5104CE21475708D6114B0137 /* Pods_try2_0UITests.framework */; };
 		A33E55631E28205C00ACA65F /* add_photo_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33E55621E28205C00ACA65F /* add_photo_ViewController.swift */; };
 		A3798C2D1DFF033A00D3E9C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3798C2C1DFF033A00D3E9C9 /* AppDelegate.swift */; };
 		A3798C2F1DFF033A00D3E9C9 /* TutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3798C2E1DFF033A00D3E9C9 /* TutoViewController.swift */; };
 		A3798C321DFF033A00D3E9C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3798C301DFF033A00D3E9C9 /* Main.storyboard */; };
 		A3798C341DFF033A00D3E9C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3798C331DFF033A00D3E9C9 /* Assets.xcassets */; };
 		A3798C371DFF033A00D3E9C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3798C351DFF033A00D3E9C9 /* LaunchScreen.storyboard */; };
-		B2C4F2261613E6B5051FFB4B /* Pods_try2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E440B47FE65E6D3ACC04AF /* Pods_try2_0Tests.framework */; };
 		B61E76921E1273F200F3977F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E76911E1273F200F3977F /* LoginViewController.swift */; };
 		B62C62B11E25371B0045BB3F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62C62B01E25371B0045BB3F /* SettingsViewController.swift */; };
 		B62C62B31E258A760045BB3F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62C62B21E258A760045BB3F /* GameViewController.swift */; };
@@ -43,23 +40,21 @@
 
 /* Begin PBXFileReference section */
 		12464FD9827D8BA52175E22F /* Pods-try2.0UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-try2.0UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-try2.0UITests/Pods-try2.0UITests.debug.xcconfig"; sourceTree = "<group>"; };
-		22E440B47FE65E6D3ACC04AF /* Pods_try2_0Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_try2_0Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C9F0CF1C5FCE62120A3BD86 /* Pods-try2.0UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-try2.0UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-try2.0UITests/Pods-try2.0UITests.release.xcconfig"; sourceTree = "<group>"; };
-		5104CE21475708D6114B0137 /* Pods_try2_0UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_try2_0UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EB2357B206D9DA050FDB38 /* Pods-try2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-try2.0.release.xcconfig"; path = "Pods/Target Support Files/Pods-try2.0/Pods-try2.0.release.xcconfig"; sourceTree = "<group>"; };
 		582D751BEBD6F8E9421D79B9 /* Pods-try2.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-try2.0Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-try2.0Tests/Pods-try2.0Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6877378CC4645CE275F0E448 /* Pods-try2.0Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-try2.0Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-try2.0Tests/Pods-try2.0Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6A6261D8ACE7C62A744C5046 /* Pods-try2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-try2.0.debug.xcconfig"; path = "Pods/Target Support Files/Pods-try2.0/Pods-try2.0.debug.xcconfig"; sourceTree = "<group>"; };
+		A318B8291E71CE2B00F78CC8 /* try2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = try2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A318B82A1E71CE2B00F78CC8 /* try2.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = try2.0Tests.xctest; path = "/Users/kps/Documents/try2.0/build/Debug-iphoneos/try2.0Tests.xctest"; sourceTree = "<absolute>"; };
+		A318B82B1E71CE2B00F78CC8 /* try2.0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = try2.0UITests.xctest; path = "/Users/kps/Documents/try2.0/build/Debug-iphoneos/try2.0UITests.xctest"; sourceTree = "<absolute>"; };
 		A33E55621E28205C00ACA65F /* add_photo_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = add_photo_ViewController.swift; sourceTree = "<group>"; };
-		A3798C291DFF033A00D3E9C9 /* try2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = try2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3798C2C1DFF033A00D3E9C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3798C2E1DFF033A00D3E9C9 /* TutoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutoViewController.swift; sourceTree = "<group>"; };
 		A3798C311DFF033A00D3E9C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A3798C331DFF033A00D3E9C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3798C361DFF033A00D3E9C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3798C381DFF033A00D3E9C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A3798C3D1DFF033A00D3E9C9 /* try2.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = try2.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3798C481DFF033A00D3E9C9 /* try2.0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = try2.0UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61E76911E1273F200F3977F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B61E76951E12921700F3977F /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		B61E76961E13CD0200F3977F /* try2.0.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = try2.0.entitlements; sourceTree = "<group>"; };
@@ -68,7 +63,6 @@
 		B692184C1E4C74CA00F645C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D3275E991E0AF2490039CF1D /* SignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		D3275E9B1E0AF56E0039CF1D /* ProfilController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilController.swift; sourceTree = "<group>"; };
-		EC706F4578E1529195E42C0B /* Pods_try2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_try2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33AD00A6125228521A3D5CB0 /* Pods_try2_0.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +77,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2C4F2261613E6B5051FFB4B /* Pods_try2_0Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58369495524E9CCB7C67E055 /* Pods_try2_0UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,20 +107,10 @@
 			isa = PBXGroup;
 			children = (
 				A3798C2B1DFF033A00D3E9C9 /* try2.0 */,
-				A3798C2A1DFF033A00D3E9C9 /* Products */,
 				58A4411E811B258EE398C046 /* Pods */,
 				A6C8E0D8E8B9AD290402592C /* Frameworks */,
+				A318B8291E71CE2B00F78CC8 /* try2.0.app */,
 			);
-			sourceTree = "<group>";
-		};
-		A3798C2A1DFF033A00D3E9C9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A3798C291DFF033A00D3E9C9 /* try2.0.app */,
-				A3798C3D1DFF033A00D3E9C9 /* try2.0Tests.xctest */,
-				A3798C481DFF033A00D3E9C9 /* try2.0UITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		A3798C2B1DFF033A00D3E9C9 /* try2.0 */ = {
@@ -157,9 +138,6 @@
 		A6C8E0D8E8B9AD290402592C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EC706F4578E1529195E42C0B /* Pods_try2_0.framework */,
-				22E440B47FE65E6D3ACC04AF /* Pods_try2_0Tests.framework */,
-				5104CE21475708D6114B0137 /* Pods_try2_0UITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -184,7 +162,7 @@
 			);
 			name = try2.0;
 			productName = try2.0;
-			productReference = A3798C291DFF033A00D3E9C9 /* try2.0.app */;
+			productReference = A318B8291E71CE2B00F78CC8 /* try2.0.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A3798C3C1DFF033A00D3E9C9 /* try2.0Tests */ = {
@@ -205,7 +183,7 @@
 			);
 			name = try2.0Tests;
 			productName = try2.0Tests;
-			productReference = A3798C3D1DFF033A00D3E9C9 /* try2.0Tests.xctest */;
+			productReference = A318B82A1E71CE2B00F78CC8 /* try2.0Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		A3798C471DFF033A00D3E9C9 /* try2.0UITests */ = {
@@ -226,7 +204,7 @@
 			);
 			name = try2.0UITests;
 			productName = try2.0UITests;
-			productReference = A3798C481DFF033A00D3E9C9 /* try2.0UITests.xctest */;
+			productReference = A318B82B1E71CE2B00F78CC8 /* try2.0UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -270,7 +248,7 @@
 				Base,
 			);
 			mainGroup = A3798C201DFF033A00D3E9C9;
-			productRefGroup = A3798C2A1DFF033A00D3E9C9 /* Products */;
+			productRefGroup = A3798C201DFF033A00D3E9C9;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (

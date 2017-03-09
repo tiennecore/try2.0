@@ -59,7 +59,7 @@ class add_photo_ViewController: UIViewController, UINavigationControllerDelegate
 							let metaData = FIRStorageMetadata()
 							metaData.contentType = "image/jpg"
 							
-                            let storageRef = FIRStorage.storage().reference().child("\(self.user!.uid)_\(num)")
+							let storageRef = FIRStorage.storage().reference().child("\(self.user!.uid)_\(num)")
                             let uploadData = UIImagePNGRepresentation(self.myImageView.image!)
                             
                             storageRef.put(uploadData!, metadata: metaData, completion: { (metadata, error) in
@@ -84,19 +84,21 @@ class add_photo_ViewController: UIViewController, UINavigationControllerDelegate
                                 }
                                 else if from == "Local"
                                 {
-                                    let check = self.user?.displayName
+                                    let check = self.user?.uid
                                     let update = checklist.child("\(check!)")
                                     update.updateChildValues(["Photos":num])
                                 }
                                 let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
-                                ref.child("images").child("\(self.user!.uid)/\(self.user!.uid)_\(num)").setValue(["Age" : self.age])
+								let addAge = Int(self.age.text!)
+                                ref.child("images").child("\(self.user!.uid)/\(self.user!.uid)_\(num)").setValue(["Age" : addAge])
                             })
+							num = num + 1
                         }
 						
                     }
                     
                 }
-                
+				
             }
             
         })

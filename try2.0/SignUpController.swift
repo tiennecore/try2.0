@@ -22,9 +22,11 @@ class SignUpController: UIViewController {
     var context:NSManagedObjectContext?
     
     @IBAction func SignUp(_ sender: Any) {
+		let user = FIRAuth.auth()?.currentUser
         let userName = usernameSignUp.text
         let userEmail = mailSignUp.text
         let userPassword = passwordSignUp.text
+		let userUID = user?.uid
         
         if userEmail == "" {
             let alertController = UIAlertController(title: "Error", message: "Please enter your email", preferredStyle: .alert)
@@ -56,7 +58,7 @@ class SignUpController: UIViewController {
                         if error == nil {
                             
                             print("You have successfully signed up")
-                            _ = ref.child("users").child(userName!).setValue(["Name" : userName!,  "Email":userEmail!, "Password" :userPassword!, "Score" : 0, "Photos" : 0, "From" : "Local"])
+                            _ = ref.child("users").child(userUID!).setValue(["Name" : userName!,  "Email":userEmail!, "Password" :userPassword!, "Score" : 0, "Photos" : 0, "From" : "Local"])
                             
                             let vc = self.storyboard?.instantiateViewController(withIdentifier:"Game")
                             self.present(vc!, animated: true, completion: nil)
