@@ -14,8 +14,15 @@ import SDWebImage
 class GameViewController: UIViewController {
 	@IBOutlet weak var photo: UIImageView!
 	@IBOutlet weak var photo2: UIStackView!
+    
+    @IBOutlet weak var slider: UISlider!
+    
 	var fadeAnim:CABasicAnimation = CABasicAnimation(keyPath: "contents");
-	
+    
+	let user = FIRAuth.auth()?.currentUser
+    let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
+
+    
 	@IBAction func gameslide(_ sender: UISlider) {
 		values.text = String(Int(sender.value))
 	}
@@ -39,13 +46,12 @@ class GameViewController: UIViewController {
 	func setup() {
 		
 		
-        let user = FIRAuth.auth()?.currentUser
+        
         
         let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
         let checklist = ref.child("images")
         let uid = user?.uid
 		var tab: [String] = []
-		
 
         checklist.observeSingleEvent(of: .value, with: {(snap) in
 			
@@ -67,6 +73,7 @@ class GameViewController: UIViewController {
 			let random = tab[randomNumber]
 			let checklist2 = ref.child("images").child(random)
 			var tab2: [String] = []
+            var ageTab : [Int] = []
 			checklist2.observeSingleEvent(of: .value, with: {(snappy) in
 				
 				if let snapDico = snappy.value as? [String:AnyObject]
@@ -74,6 +81,7 @@ class GameViewController: UIViewController {
 					for same in snapDico{
 						
 						tab2.append(same.key)
+                        ageTab.append(same.value["Age"]! as! Int)
 					}
 					
 					
@@ -108,6 +116,65 @@ class GameViewController: UIViewController {
 		})
 	}
 	
+    func score (_ age : Int)
+    {
+        
+        let guessAge = Int(slider.value)
+        let realAge  = age
+        if (guessAge == realAge)
+        {
+            let checklist = self.ref.child("users")
+            
+            let usermail = self.user?.email
+            checklist.observeSingleEvent(of: .value, with: {(snap) in
+                
+                if let snapDict = snap.value as? [String:AnyObject]
+                {
+                    
+                    for each in snapDict{
+                        
+                        let childValue = each.value["Email"]!
+                        var oldScore = each.value["Score"]! as! Int
+                        let from = each.value["From"]! as! String
+                        let name = each.value["Name"]!
+                        if childValue != nil
+                        {
+                            if (childValue as? String == usermail )
+                            {
+                                
+                                oldScore+=100
+                                if from == "Google"
+                                {
+                                    let check = self.user?.uid
+                                    let update = checklist.child("g_\(name!)_\(check!)")
+                                    update.updateChildValues(["Score":oldScore])
+                                }
+                                else if from == "Facebook"
+                                {
+                                    let check = self.user?.uid
+                                    let update = checklist.child("f_\(name!)_\(check!)")
+                                    update.updateChildValues(["Score":oldScore])
+                                }
+                                else if from == "Local"
+                                {
+                                    let check = self.user?.uid
+                                    let update = checklist.child("\(check!)")
+                                    update.updateChildValues(["Score":oldScore])
+                                }
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+            })
+            
+            
+            print("Parfait")
+        }
+    }
 	
 	@IBAction func valider(_ sender: Any) {
 		

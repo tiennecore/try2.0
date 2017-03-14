@@ -17,6 +17,7 @@ target 'try2.0' do
   pod 'Firebase/Storage'
   pod 'SDWebImage' 
   pod 'FirebaseUI'
+  pod 'SDWebImage/WebP’
 
   target 'try2.0Tests' do
     inherit! :search_paths
