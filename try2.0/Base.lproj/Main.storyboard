@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -114,7 +114,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7HS-ve-j8S">
-                                                <rect key="frame" x="66" y="3" width="66" height="95"/>
+                                                <rect key="frame" x="66" y="2.5" width="66" height="95"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFt-4S-ZEX">
                                                         <rect key="frame" x="0.0" y="0.0" width="66" height="20"/>
@@ -1902,13 +1902,13 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yis-iJ-lFQ">
-                                                <rect key="frame" x="20" y="653" width="288" height="21"/>
+                                                <rect key="frame" x="20" y="653" width="288" height="20.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XeK-qj-u8b">
-                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How Old ??" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXG-Vb-SP7">
-                                                                <rect key="frame" x="0.0" y="0.0" width="288" height="21"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="288" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -2336,10 +2336,10 @@
                                         <rect key="frame" x="45" y="400" width="198" height="100"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JKb-ax-9Qp">
-                                                <rect key="frame" x="0.0" y="40" width="66" height="21"/>
+                                                <rect key="frame" x="0.0" y="40" width="66" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VlH-LC-8Dm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -2347,7 +2347,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9Hr-a2-gnF">
-                                                <rect key="frame" x="66" y="3" width="66" height="95"/>
+                                                <rect key="frame" x="66" y="2.5" width="66" height="95"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvK-Hd-WYk">
                                                         <rect key="frame" x="0.0" y="0.0" width="66" height="20"/>
@@ -2384,10 +2384,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fwL-Q4-VKC">
-                                                <rect key="frame" x="132" y="40" width="66" height="21"/>
+                                                <rect key="frame" x="132" y="40" width="66" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdp-LF-cjh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -2430,6 +2430,8 @@
                         <outlet property="photo" destination="rGP-c6-bMR" id="Kpj-1J-aZb"/>
                         <outlet property="photo2" destination="nW2-5D-FSa" id="ixx-Tf-gxU"/>
                         <outlet property="positivevalue" destination="mdp-LF-cjh" id="F9g-yI-i9x"/>
+                        <outlet property="resultatinf" destination="VlH-LC-8Dm" id="9Yt-N5-wZz"/>
+                        <outlet property="resultatpos" destination="mdp-LF-cjh" id="7gp-8u-O2O"/>
                         <outlet property="slider" destination="9pt-NS-wsj" id="EBT-PV-ojb"/>
                         <outlet property="values" destination="B23-G2-9Iz" id="i0J-gC-6Yl"/>
                     </connections>
@@ -2789,10 +2791,10 @@
         <image name="yesButton" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sBg-wC-W6C"/>
-        <segue reference="LV4-oF-VUJ"/>
-        <segue reference="pdB-iH-XHc"/>
         <segue reference="qUt-br-kzb"/>
+        <segue reference="5Ae-bF-qaf"/>
+        <segue reference="sBg-wC-W6C"/>
         <segue reference="Mel-F4-eWq"/>
+        <segue reference="pdB-iH-XHc"/>
     </inferredMetricsTieBreakers>
 </document>
