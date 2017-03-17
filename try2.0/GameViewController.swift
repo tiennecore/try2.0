@@ -20,13 +20,13 @@ class GameViewController: UIViewController {
 	@IBOutlet weak var values: UILabel!
 	@IBOutlet weak var negativevalue: UILabel!
 	@IBOutlet weak var positivevalue: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
 	var randomNumber2 = 0
 	var ageTab : [Int] = []
 	var fadeAnim:CABasicAnimation = CABasicAnimation(keyPath: "contents");
 	let user = FIRAuth.auth()?.currentUser
     let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
-	let toImage = UIImage(named: "toImage.jpg")!
-
+	
     
 	@IBAction func gameslide(_ sender: UISlider) {
 		values.text = String(Int(sender.value))
@@ -38,7 +38,12 @@ class GameViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 	
-	func setup() {
+    func setup() {
+        randomPhotos()
+        majscoreuser(0)
+    }
+    
+	func randomPhotos() {
         let ref = FIRDatabase.database().reference(fromURL: "https://howold-b00bc.firebaseio.com/" )
         let checklist = ref.child("images")
         let uid = user?.uid
@@ -74,7 +79,6 @@ class GameViewController: UIViewController {
 				self.randomNumber2 = Int(arc4random_uniform(UInt32(tab2.count)))
 				let random2 = tab2[self.randomNumber2]
 				let reference: FIRStorageReference = FIRStorage.storage().reference(forURL: "gs://howold-b00bc.appspot.com/\(random2)")
-				print(random2)
 				let placeholderImage = UIImage(named: "placeholder.jpg")
 				self.photo.sd_setImage(with: reference, placeholderImage: placeholderImage)
 				self.photo.layer.backgroundColor = UIColor.white.cgColor
@@ -86,104 +90,105 @@ class GameViewController: UIViewController {
 				self.photo.layer.contentsGravity = kCAGravityResizeAspect
 				self.photo.layer.contentsScale = UIScreen.main.scale
 				self.fadeAnim.fromValue = placeholderImage
-				self.fadeAnim.toValue   = self.toImage
 				self.fadeAnim.duration  = 1.5         //smoothest value
 			})
 		})
 	}
-	
+    func majscoreuser(_ value : Int){
+        
+        let checklist = self.ref.child("users")
+        
+        let usermail = self.user?.email
+        checklist.observeSingleEvent(of: .value, with: {(snap) in
+            
+            if let snapDict = snap.value as? [String:AnyObject]
+            {
+                
+                for each in snapDict{
+                    
+                    let childValue = each.value["Email"]!
+                    var oldScore = each.value["Score"]! as! Int
+                    let from = each.value["From"]! as! String
+                    let name = each.value["Name"]!
+                    if childValue != nil
+                    {
+                        if (childValue as? String == usermail )
+                        {
+                            
+                            oldScore+=value
+                            if from == "Google"
+                            {
+                                print("1")
+                                let check = self.user?.uid
+                                let update = checklist.child("g_\(name!)_\(check!)")
+                                update.updateChildValues(["Score":oldScore])
+                            }
+                            else if from == "Facebook"
+                            {
+                                let check = self.user?.uid
+                                let update = checklist.child("f_\(name!)_\(check!)")
+                                update.updateChildValues(["Score":oldScore])
+                            }
+                            else if from == "Local"
+                            {
+                                let check = self.user?.uid
+                                let update = checklist.child("\(check!)")
+                                update.updateChildValues(["Score":oldScore])
+                            }
+                            self.scoreLabel.text = ("\(oldScore)")
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+        })
+        print("End")
+    }
+
     func score (_ age : Int)
     {
-
         let guessAge = Int(slider.value)
         let realAge  = ageTab[age]
         if (guessAge == realAge)
         {
-            majscoreuser( 100 )
+            majscoreuser(100)
                 
 		}
-		if(guessAge < realAge){
+		else if(guessAge < realAge){
 			let dif = Int(realAge - guessAge )
-			resultatinf.text = "-" + String( dif )
+			resultatinf.text = "- \(dif)"
+            resultatpos.text = ""
 			if (dif < 11){
-				majscoreuser( 50 )
+				majscoreuser(50)
 			}
 			if (dif < 30){
-				majscoreuser( 25 )
+				majscoreuser(25)
 			}
 		}
-		if(guessAge > realAge){
+		else if(guessAge > realAge){
 			let dif = Int(guessAge - realAge )
-			resultatinf.text = "+" + String( dif )
+            resultatinf.text = ""
+            resultatpos.text = "+ \(dif)"
 			if (dif < 11){
-				majscoreuser( 50 )
+				majscoreuser(50)
 			}
 			if (dif < 30){
-				majscoreuser( 25 )
+				majscoreuser(25)
 			}
 		}
-        print("Parfait")
+        majscoreuser(1) // only here for try if score user is working
     }
 	
-	func majscoreuser(_ value : Int){
-		let checklist = self.ref.child("users")
-		
-		let usermail = self.user?.email
-		checklist.observeSingleEvent(of: .value, with: {(snap) in
-			
-			if let snapDict = snap.value as? [String:AnyObject]
-			{
-				
-				for each in snapDict{
-					
-					let childValue = each.value["Email"]!
-					var oldScore = each.value["Score"]! as! Int
-					let from = each.value["From"]! as! String
-					let name = each.value["Name"]!
-					if childValue != nil
-					{
-						if (childValue as? String == usermail )
-						{
-							
-							oldScore+=value
-							if from == "Google"
-							{
-								let check = self.user?.uid
-								let update = checklist.child("g_\(name!)_\(check!)")
-								update.updateChildValues(["Score":oldScore])
-							}
-							else if from == "Facebook"
-							{
-								let check = self.user?.uid
-								let update = checklist.child("f_\(name!)_\(check!)")
-								update.updateChildValues(["Score":oldScore])
-							}
-							else if from == "Local"
-							{
-								let check = self.user?.uid
-								let update = checklist.child("\(check!)")
-								update.updateChildValues(["Score":oldScore])
-							}
-						}
-						
-					}
-					
-				}
-				
-			}
-		})
-	}
-	
-	@IBAction func valider(_ sender: Any) {
+		@IBAction func valider(_ sender: Any) {
 		
 		score(randomNumber2)
-		
+        randomPhotos()
 		photo.layer.add(fadeAnim, forKey: "contents")
-		
-		photo.image = toImage
-		
-		resultatinf.text = ""
-		resultatpos.text = ""
+        
+        
+
 	}
 	
     override func didReceiveMemoryWarning() {
